@@ -60,9 +60,6 @@ Result=[]
 for item in players:
     temp=[item.name,item.score]
     Result.append(temp)
-# print("| Contestant Name           | Score |")
-# for item in Result:
-#     print("|",item[0]," "*(24-len(item[0])),"|",item[1]," "*(4-len(str(item[1]))),"|")
 head = ["Name","Score"]
 print(tabulate(Result, headers=head, tablefmt="grid"))
 
