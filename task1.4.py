@@ -11,7 +11,10 @@ class ChessPlayer:
         self.score = 0
 
     def simulateMatch(self, obj):
-        if abs(self.ELO-obj.ELO) > 100:
+        if (self.isBoring is True or obj.isBoring is True) and abs(self.ELO-obj.ELO) < 100:
+            self.score += 0.5
+            obj.score += 0.5
+        elif abs(self.ELO-obj.ELO) > 100:
             if self.ELO > obj.ELO:
                 self.score += 1
             else:
@@ -35,9 +38,7 @@ class ChessPlayer:
                     self.score += 1
                 else:
                     obj.score += 1
-        elif (self.isBoring is True or obj.isBoring is True) and abs(self.ELO-obj.ELO) < 100:
-            self.score += 0.5
-            obj.score += 0.5
+
 
 
 c = ChessPlayer('Courage the Cowardly Dog', 25, 1000.39, 1000, False)
